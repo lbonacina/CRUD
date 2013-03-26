@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+
+        <h:form id="reg_form">
+
+            <h2>Member Registration</h2>
+
+            <h:panelGrid id="reg_input" columns="3" columnClasses="titleCell">
+                <h:outputLabel for="name" value="Name:"/>
+                <h:inputText id="name" value="#{two_member_crud.selectedMember.name}"/>
+                <h:message for="name" errorClass="invalid"/>
+
+                <h:outputLabel for="email" value="Email:"/>
+                <h:inputText id="email" value="#{two_member_crud.selectedMember.email}"/>
+                <h:message for="email" errorClass="invalid"/>
+
+                <h:outputLabel for="phoneNumber" value="Phone #:"/>
+                <h:inputText id="phoneNumber" value="#{two_member_crud.selectedMember.phoneNumber}"/>
+                <h:message for="phoneNumber" errorClass="invalid"/>
+            </h:panelGrid>
+
+            <p:commandButton id="save" action="#{two_member_crud.save}" value="Save" styleClass="save_button"
+                             update="reg_input"/>
+
+            <p:button id="back" outcome="twoPageCRUD" value="Back"/>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

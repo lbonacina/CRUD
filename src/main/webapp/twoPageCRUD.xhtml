@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+
+        <h:form id="reg_form">
+
+            <p:commandButton id="back" action="#{two_member_crud.back}" value="Back" immediate="true"/>
+
+            <h2>Members</h2>
+
+            <p:dataTable id="memberTable" var="_member" value="#{two_member_crud.members}" styleClass="simpletablestyle">
+                <f:facet  name="header">
+                    <p:commandButton id="create" action="#{two_member_crud.create}" value="New" style="position:relative; left:-240px;"
+                                     process="@this" immediate="true"/>
+                </f:facet>
+                <p:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{_member.id}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{_member.name}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Email</f:facet>
+                    #{_member.email}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Phone #</f:facet>
+                    #{_member.phoneNumber}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Commands</f:facet>
+                    <p:commandButton value="Edit" action="#{two_member_crud.edit(_member)}" process="@this"/>
+                    <p:commandButton value="Del" action="#{two_member_crud.delete(_member)}" process="@this" update="memberTable"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

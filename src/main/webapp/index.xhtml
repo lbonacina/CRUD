@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+
+        <p>
+            Simple example to demostrate CRUD operations on simple object, either as a single page or as a two page "list-edit"
+            The beans to control the one and two pages example are very similar:
+                - on the one page example the bean is view scoped (CODI ViewAccesScoped)
+                - on the two page example the bean is a conversation scoped bean (CODI ConversationScoped)
+                  (conversation should be closed explicitly)
+
+            Warning: a CDI Interception will break the "destroy" part of the bean with a bug (NullPointerException)
+        </p>
+
+        <h:form id="reg">
+            <p:commandButton id="one" action="onePageCRUD?faces-redirect=true" value="One Page" immediate="true"/>
+            <p:commandButton id="two" action="twoPageCRUD?faces-redirect=true" value="Two Page" immediate="true"/>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
