@@ -1,5 +1,7 @@
-CRUD
 ========================
+
+Simple CRUD with JPA+JSF+CODI
+
 
 some notes on CRUD
 
@@ -10,3 +12,5 @@ some notes on CRUD
 -   watch out for a single-page crud (table+fields on same page) since when you try for example 'edit'
     the whole form is submitted, including the field which might result in some constraint violation
     usa partial submit with ajax
+
+========================
